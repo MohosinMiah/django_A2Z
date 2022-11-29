@@ -1,21 +1,12 @@
 from django.http import HttpResponse
 
 from articals.models import Article
+from django.shortcuts import render
+
 
 def home_view(request):
-    name = "Bangladesh"
     # Get data from database
     artical_obj = Article.objects.get( pk=1 )
 
-    title   = artical_obj.title
-    content = artical_obj.content
-    
-    context = {
-        "title" : artical_obj.title,
-        "content" : artical_obj.content
-    }
-
-    # Django Template
-    # CONTENT = f""" Artical Title : {title}  , and Artical Content : {content} """.format(title=title, content=content)
-    CONTENT = f""" Artical Title : {title}  , and Artical Content : {content} """.format(context)
-    return HttpResponse( CONTENT )
+    context = {'artical_obj': artical_obj}
+    return render(request, 'home_view.html',context)
