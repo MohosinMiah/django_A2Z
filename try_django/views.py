@@ -9,6 +9,13 @@ def home_view(request):
 
     title   = artical_obj.title
     content = artical_obj.content
+    
+    context = {
+        "title" : artical_obj.title,
+        "content" : artical_obj.content
+    }
+
     # Django Template
-    CONTENT = f""" Artical Title : {name}  , and Artical Content : {content} """
+    # CONTENT = f""" Artical Title : {title}  , and Artical Content : {content} """.format(title=title, content=content)
+    CONTENT = f""" Artical Title : {title}  , and Artical Content : {content} """.format(context)
     return HttpResponse( CONTENT )
