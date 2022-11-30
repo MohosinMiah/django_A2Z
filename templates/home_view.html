@@ -9,7 +9,7 @@
 <hr>
 {%  for artical in articals  %}
 <div class="list-group">
-	<h3>Title : {{ artical.title }}</h3>
+	<h3>Title : {{ artical.title }}<a href="{% url 'artical_detail' artical.id %}">{{ artical.title }}</a></h3>
 	<p>Content : {{ artical.content }}</p> </p>
 </div>
 {% endfor %}

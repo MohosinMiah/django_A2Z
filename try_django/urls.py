@@ -21,5 +21,7 @@ from try_django import views
 urlpatterns = [
     # path( '' , home_view ),
     path( '' , views.home_view ),
+    path('<int:artical_id>/', views.artical_detail, name='artical_detail'),
+
     path('admin/', admin.site.urls),
 ]

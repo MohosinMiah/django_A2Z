@@ -14,3 +14,13 @@ def home_view(request):
         'articals' : articals
         }
     return render(request, 'home_view.html',context)
+
+
+def artical_detail(request, artical_id):
+    # Get data from database
+    artical_obj = Article.objects.get( pk=artical_id )
+
+    context = {
+        'artical_obj': artical_obj,
+        }
+    return render(request, 'artical_details_view.html',context)
