@@ -4,5 +4,14 @@
 <h2>Single Artical View</h2>
 <h1>Artical Title =  {{ artical_obj.title  }} </h1>
 <p>Content =  {{ artical_obj.content }} </p>
+<br>
+<h1>List Of Articals</h1>
+<hr>
+{%  for artical in articals  %}
+<div class="list-group">
+	<h3>Title : {{ artical.title }}</h3>
+	<p>Content : {{ artical.content }}</p> </p>
+</div>
+{% endfor %}
+
 {% endblock content %}
-}
