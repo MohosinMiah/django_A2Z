@@ -5,11 +5,17 @@
 <h1>Artical Title =  {{ artical_obj.title  }} </h1>
 <p>Content =  {{ artical_obj.content }} </p>
 <br>
+
+<h1>Create New Artical <a href="{% url 'artical_create' %}" target="_blank">Create New Artical</a> </h1>
 <h1>List Of Articals</h1>
+<form action="" method="GET">
+	<input type="text" placeholder="Search Articals" name="search">
+	<input type="submit" value="Search">
+</form>
 <hr>
 {%  for artical in articals  %}
 <div class="list-group">
-	<h3>Title : {{ artical.title }}<a href="{% url 'artical_detail' artical.id %}">{{ artical.title }}</a></h3>
+	<h3>Title : <a href="{% url 'artical_detail' artical.id %}" target="_blank">{{ artical.title }}</a></h3>
 	<p>Content : {{ artical.content }}</p> </p>
 </div>
 {% endfor %}
