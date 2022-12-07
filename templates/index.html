@@ -11,6 +11,11 @@
 <body>
 
 <div class="jumbotron text-center">
+  {% if user.is_authenticated %}
+  <h1>Logout <a href="{% url 'accounts_logout' %}" target="_blank">Logout</a> </h1>
+
+  {% endif %}
+  <br>
   <h1>Login <a href="{% url 'accounts_login' %}" target="_blank">Login</a> </h1>
   <p>Resize this responsive page to see the effect!</p> 
   <hr>
