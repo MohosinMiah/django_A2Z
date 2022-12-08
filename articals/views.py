@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -43,4 +43,4 @@ def artical_create_post(request):
 
         form = ArticalForm()
         context = { 'form' : form }
-    return render(request, 'articals/create.html', context)
+    return redirect('/articals/artical/create')
