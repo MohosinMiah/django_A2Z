@@ -10,8 +10,9 @@
     <h1>Create Artical</h1>
     <form action="{%  url 'artical_create_post' %}" method="POST">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Artical Title" /> <br /><br />
-        <textarea name="content" id="" cols="30" rows="10" placeholder="Artical Description"></textarea> <br /><br />
+        <!-- <input type="text" name="title" placeholder="Artical Title" /> <br /><br />
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Artical Description"></textarea> <br /><br /> -->
+        {{ form }}
         <input type="submit" value="Create"/>
     </form>
 </body>

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from articals.models import Article
+from .forms import ArticalForm
 
 
 def home_view(request):
@@ -14,7 +15,7 @@ def home_view(request):
         'artical_obj': artical_obj,
         'articals' : articals
         }
-    return render(request, 'articals/home_view.html',context)
+    return render(request, 'articals/home_view.html')
 
 
 def artical_detail(request, artical_id):
@@ -28,15 +29,18 @@ def artical_detail(request, artical_id):
 
 @login_required(login_url='/accounts/login',redirect_field_name='')
 def artical_create(request):
-    
-    context = {}
-    return render(request, 'articals/create.html')
+    form = ArticalForm()
+    context = { 'form' : form }
+    return render(request, 'articals/create.html',context)
 
 @login_required(login_url='/accounts/login',redirect_field_name='')
 def artical_create_post(request):
     if request.method == 'POST':
-        title = request.POST.get('title')
+        title = request.POST.get('title').upper()
         print(title)
         content = request.POST.get('content')
         Article.objects.create(title=title, content=content)
-    return render(request, 'articals/create.html')
+
+        form = ArticalForm()
+        context = { 'form' : form }
+    return render(request, 'articals/create.html', context)
